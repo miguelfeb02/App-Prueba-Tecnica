@@ -1,0 +1,30 @@
+{
+  "categorias": [
+    {
+      "id": 0,
+      "nombre": "Tipo A",
+      "tipo": "A"
+    },
+    {
+      "id": 1,
+      "nombre": "Tipo B",
+      "tipo": "B"
+    },
+    {
+      "id": 2,
+      "nombre": "Tipo C",
+      "tipo": "C"
+    }
+  ],
+  "productos": [
+    {
+      "id": 8,
+      "codigo": "wdwdwd",
+      "estado": false,
+      "precio": "22333",
+      "producto": "WDWDW",
+      "descripcion": "wdwd",
+      "idCategoria": 0
+    }
+  ]
+}
