@@ -55,7 +55,7 @@ class _ProductoEditState extends State<ProductoEdit> {
                             form.itemform("Precio",4,"precio",true,false,productodata.precio),
                             const SizedBox(height: 30,),
                             form.dropdownedit(state.categorias,"categoria",productodata.idCategoria),
-                            const SizedBox(height: 15,),
+                            const SizedBox(height: 50,),
                             
                             btneditar(state.pmodel,productodata.id)
                           ],
@@ -79,7 +79,7 @@ class _ProductoEditState extends State<ProductoEdit> {
           Navigator.pushNamed(context, "productos");
         }
        }, 
-    child:const SizedBox(width: 100,
+    child:const SizedBox(width: 200,
           child:  Center(child: Text("Editar"))
     ));
   }

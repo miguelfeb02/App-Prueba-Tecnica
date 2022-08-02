@@ -11,4 +11,5 @@ void main() {
   });
 }
 
-// no se realizan pruebas unitarias como tal , debido a que todos
+// no se realizan pruebas unitarias como tal , debido a que todos los metodos y clases
+// llaman widgets a excepcion de la clase mockApi que utiliza dependencias de terceros como Http

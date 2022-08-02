@@ -18,13 +18,49 @@
   ],
   "productos": [
     {
-      "id": 8,
-      "codigo": "wdwdwd",
+      "id": 0,
+      "codigo": "0cb05810-8fbf-422e-8812-dfae728bc20a",
       "estado": false,
-      "precio": "22333",
-      "producto": "WDWDW",
-      "descripcion": "wdwd",
+      "precio": "146472",
+      "producto": "GEOFORM",
+      "descripcion": "apple",
       "idCategoria": 0
+    },
+    {
+      "id": 1,
+      "codigo": "192b7b00-fbf9-4fbf-8b06-3d8850296905",
+      "estado": true,
+      "precio": "283675",
+      "producto": "GUSHKOOL",
+      "descripcion": "strawberry",
+      "idCategoria": 1
+    },
+    {
+      "id": 2,
+      "codigo": "e1f47511-06ab-4998-bbc2-fab7fc4dad4a",
+      "estado": false,
+      "precio": "260295",
+      "producto": "ECLIPSENT",
+      "descripcion": "strawberry",
+      "idCategoria": 0
+    },
+    {
+      "id": 7,
+      "codigo": "0669f6f3-dd25-41e0-a754-245aba12f301",
+      "estado": true,
+      "precio": "128994",
+      "producto": "TRASOLA",
+      "descripcion": "strawberry",
+      "idCategoria": 2
+    },
+    {
+      "id": 10,
+      "codigo": "1111",
+      "estado": false,
+      "precio": "236589",
+      "producto": "BANANO",
+      "descripcion": "Fruta",
+      "idCategoria": 1
     }
   ]
 }

@@ -53,7 +53,7 @@ class _ProductoAddState extends State<ProductoAdd> {
                         form.itemform("Precio",4,"precio",true,false,""),
                         const SizedBox(height: 30,),
                         form.dropdown(state.categorias,"categoria"),
-                        const SizedBox(height: 15,),
+                        const SizedBox(height: 50,),
                         
                         btnenviar(state.pmodel)
                       ],
@@ -79,7 +79,7 @@ class _ProductoAddState extends State<ProductoAdd> {
               Navigator.pushNamed(context, "productos");
         }
     }, 
-    child:const SizedBox(width: 100,
+    child:const SizedBox(width: 200,
         child:  Center(child: Text("Enviar"))
     ));
   }
