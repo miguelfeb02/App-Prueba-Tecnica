@@ -3,10 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:gestionapp/src/controllers/controllerform.dart';
 import 'package:gestionapp/src/controllers/controllerproductos.dart';
-
-
 import 'package:gestionapp/src/services/mockapi.dart';
-
 import 'package:gestionapp/src/widgets/form.dart';
 import 'package:get/get.dart';
 
@@ -42,6 +39,8 @@ class _ProductoAddState extends State<ProductoAdd> {
                   child: SingleChildScrollView(
                     child: Column(
                       children:  [
+
+                        // se crea un formulario apartir de widgets reutilizables con opciones
                         
                         form.itemform("Nombre de Producto",1,"producto",true,false,""),
                         const SizedBox(height: 15,),
@@ -74,17 +73,14 @@ class _ProductoAddState extends State<ProductoAdd> {
       onPressed: () async{
         
         if (keyform.currentState!.validate()) {
-          keyform.currentState!.save();
-          await mock.postProducto(productomodel);
-          Controllerproductos.to.actualizar();
-          Navigator.pushNamed(context, "productos");
+              keyform.currentState!.save();
+              await mock.postProducto(productomodel);
+              Controllerproductos.to.actualizar();
+              Navigator.pushNamed(context, "productos");
         }
-          
-      
-       }, 
-    child:const SizedBox(
-      width: 100,
-            child:  Center(child: Text("Enviar"))
-          ));
+    }, 
+    child:const SizedBox(width: 100,
+        child:  Center(child: Text("Enviar"))
+    ));
   }
 }

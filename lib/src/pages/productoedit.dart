@@ -42,7 +42,8 @@ class _ProductoEditState extends State<ProductoEdit> {
                       child: SingleChildScrollView(
                         child: Column(
                           children:  [
-                            
+                             // se crea un formulario para la edicion del producto reutilizando widgets
+
                             form.itemform("Nombre de Producto",1,"producto",true,false,productodata.producto),
                             const SizedBox(height: 15,),
                             form.itemform("Codigo",3,"codigo",true,true,productodata.codigo),
@@ -77,12 +78,9 @@ class _ProductoEditState extends State<ProductoEdit> {
           Controllerproductos.to.actualizar();
           Navigator.pushNamed(context, "productos");
         }
-          
-      
        }, 
-    child:const SizedBox(
-      width: 100,
-            child:  Center(child: Text("Editar"))
-          ));
+    child:const SizedBox(width: 100,
+          child:  Center(child: Text("Editar"))
+    ));
   }
 }

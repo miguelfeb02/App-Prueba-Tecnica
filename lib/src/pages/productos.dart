@@ -16,6 +16,9 @@ class Productos extends StatefulWidget {
 
 class _ProductosState extends State<Productos> {
 
+
+// se llaman los metodos para crear widgets y conseguir datos del servidor
+
   final widgets=Widgets();
   final opciones=Opciones();
   final mock=MockApi();
@@ -57,31 +60,16 @@ class _ProductosState extends State<Productos> {
 
     
   }
+
+ // widget para buscar  por nombre de producto dentro de la lista de productos
+
+
  buscador(){
-  return Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(15),
-                      height: Get.height * 0.1,
-                      
-                      child: TextField(
-                        keyboardType: TextInputType.text,
-                        controller: control,
-                        onChanged: (value) {
-                          setState(() {
-                            busqueda = value;
-                            
-                          });
-                        },
-                        decoration: const InputDecoration(
-                          suffixIcon: Icon(Icons.search),
-                          hintText: "Buscar por producto",
-                          contentPadding: EdgeInsets.fromLTRB(20, 20, 0, 0),
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                    ),
-                  );
+  return Expanded(       child: Container(         padding: const EdgeInsets.all(15),         height: Get.height * 0.1,                  child: TextField(           keyboardType: TextInputType.text,           controller: control,           onChanged: (value) {             setState(() {               busqueda = value;                            });           },           decoration: const InputDecoration(             suffixIcon: Icon(Icons.search),             hintText: "Buscar por producto",             contentPadding: EdgeInsets.fromLTRB(20, 20, 0, 0),             border: OutlineInputBorder(),           ),         ),       ),     );
  }
+ 
+ //widget para agregar nuevo prodcutos
+  
  botonadd(){
   return  SizedBox(
             width: Get.width*0.2,
@@ -97,12 +85,15 @@ class _ProductosState extends State<Productos> {
            );
  }
 
+
+//widget para crear la lista de productos
+
  productos(){
   return GetBuilder<Controllerproductos>(
         init: Controllerproductos(),
         builder: (state) {
-          
-          List filtradoLista = [];
+          if (state.productos!=["error"]) {
+            List filtradoLista = [];
 
           for (var element in state.productos) {
             if (element.producto.toString().toLowerCase().startsWith(busqueda.toLowerCase())) {
@@ -110,15 +101,14 @@ class _ProductosState extends State<Productos> {
             }
           }
 
-          List reversed=filtradoLista.reversed.toList();
+        List reversed=filtradoLista.reversed.toList();
         return reversed.isNotEmpty? ListView.builder(
           itemCount: reversed.length,
           itemBuilder: (context, index) {
             
             return Dismissible(
               key: UniqueKey(),
-              
-              
+
               confirmDismiss: (direction)async {
                
                 if (direction == DismissDirection.endToStart) {
@@ -139,6 +129,12 @@ class _ProductosState extends State<Productos> {
           ):const Center(
             child: Text("No existen productos creados"),
           );
+          }else{
+            return const Center(
+            child: Text("Servidor Desconectado"),
+          );
+          }
+          
       },
 
       );

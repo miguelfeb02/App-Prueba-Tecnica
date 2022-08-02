@@ -8,10 +8,9 @@ class Formulario {
   
   Widget itemform(nombre,numformato,save,lock,opcional,inicial){
 
-   
+     //se inicializan las variables para modificar el formato y tipo de teclado para cada campo
 
      FilteringTextInputFormatter formato=FilteringTextInputFormatter.allow(RegExp('[a-zA-Z]'));
-     
      var kboard=TextInputType.text;  
     
     switch (numformato) {
@@ -39,36 +38,40 @@ class Formulario {
       
       default:
     }
+    //se retorna el campo con las opciones configuradas
+
     return TextFormField(
       initialValue: inicial,
       enabled: lock,
-             inputFormatters: [
-                formato
-              ],
-           maxLines: 1,
-           keyboardType: kboard,
-           decoration: InputDecoration(
-             labelText: nombre,
-              contentPadding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
-             border: OutlineInputBorder(borderRadius:BorderRadius.circular(10.0)),
-             enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: const BorderSide(
+      inputFormatters: [formato],
+      maxLines: 1,
+      keyboardType: kboard,
+      decoration: InputDecoration(
+      labelText: nombre,
+      contentPadding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
+      border: OutlineInputBorder(borderRadius:BorderRadius.circular(10.0)),
+          enabledBorder: OutlineInputBorder(
+               borderRadius: BorderRadius.circular(10.0),
+               borderSide: const BorderSide(
                       color: Colors.blue,
                       width: 1.0,
                     ),
                   ),
            ),
-           validator: (value) {
-             if (!opcional) {
-               if (value!.isEmpty) {
-               return "Texto vacio";
-             } else {
-               return null;
+     validator: (value) {
+        if (!opcional) {
+            if (value!.isEmpty) {
+                 return "Texto vacio";
+            } else {
+                 return null;
              }
              }
            },
-           onSaved: (value) async {
+
+           //se actualizan los valores de cada campo dentro del modelo utilizando
+           //el gestor de estados
+
+      onSaved: (value) async {
 
             switch (save) {
                 case "producto": await Controllerform.to.actualizarproducto(value);
@@ -85,17 +88,20 @@ class Formulario {
      );
    }
 
-   dropdown(List<String >lista,String nombre){
+
+   //Widget para crear los dropdownlist 
+   
+   Widget dropdown(List<String >lista,String nombre){
     return DropdownButtonFormField(
       onChanged: (value) {
         
       },
       onSaved: (value) {
         switch (nombre) {
-                 case "estado": Controllerform.to.actualizarestado(value);
-                break;
-                case "categoria": Controllerform.to.actualizarcategoria(value);
-                break;
+            case "estado": Controllerform.to.actualizarestado(value);
+            break;
+            case "categoria": Controllerform.to.actualizarcategoria(value);
+            break;
           default:
         }
       },

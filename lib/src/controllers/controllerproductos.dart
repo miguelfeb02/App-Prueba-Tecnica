@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 
 
+//Con el controllerproductos se controla el estado de la lista de productos
 
 class Controllerproductos extends GetxController {
   static Controllerproductos get to => Get.find();
@@ -22,8 +23,6 @@ class Controllerproductos extends GetxController {
   void onInit() async {
     
     productos  = await mock.getProdcutos();
-    
-
     update();
     
   }

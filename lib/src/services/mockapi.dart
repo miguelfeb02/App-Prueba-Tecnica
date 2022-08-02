@@ -58,29 +58,24 @@ class MockApi {
    try {
 
        await http.post(Uri.parse(urlproductos),
-       headers: <String,String>{'Content-Type':'application/json;charset=UTF-8'}
-        , body: productomodelToJson(producto));
+       headers: <String,String>{'Content-Type':'application/json;charset=UTF-8'},
+       body: productomodelToJson(producto));
        print("Post producto");
 
-       return true;
+      
 
        } 
    
    catch (e) {
        print(e);
-       return false;
-
        }
   }
 
   Future deleteProducto(ProductoModel producto,id) async {
    try {
            final urldelete="$urlproductos/$id";
-       await http.delete(Uri.parse(urldelete), body: productomodelToJson(producto));
-       print("delete producto");
-
-       return true;
-
+           await http.delete(Uri.parse(urldelete), body: productomodelToJson(producto));
+           print("delete producto");
        } 
    
    catch (e) {
@@ -93,13 +88,10 @@ class MockApi {
   Future putProducto(ProductoModel producto,id) async {
    try {
            final urlput="$urlproductos/$id";
-       await http.put(Uri.parse(urlput),
-        headers: <String,String>{'Content-Type':'application/json;charset=UTF-8'},
-       body: productomodelToJson(producto));
-       print("put producto");
-
-       return true;
-
+           await http.put(Uri.parse(urlput),
+           headers: <String,String>{'Content-Type':'application/json;charset=UTF-8'},
+           body: productomodelToJson(producto));
+           print("put producto");
        } 
    
    catch (e) {

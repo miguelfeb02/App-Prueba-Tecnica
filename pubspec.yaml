@@ -37,6 +37,7 @@ dependencies:
   http: 
   get: ^4.6.5
   currency_text_input_formatter: ^2.1.5
+  mockito: ^5.2.0
 
 dev_dependencies:
   flutter_test:

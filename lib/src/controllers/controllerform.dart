@@ -7,13 +7,14 @@ import 'package:gestionapp/src/services/mockapi.dart';
 import 'package:get/get.dart';
 
 
+//Con el controllerform se controla el estado de los valores de cada en el formulario
 
 
 class Controllerform extends GetxController {
   static Controllerform get to => Get.find();
   
   
-final pmodel=ProductoModel(
+  final pmodel=ProductoModel(
            codigo: '', 
            descripcion: '', 
            estado: false, 
